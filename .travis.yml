@@ -22,7 +22,7 @@ python:
 install:
     # On nightly, upgrade setuptools first to work around
     # https://github.com/pypa/setuptools/issues/1257
-    - pip install dataclasses
+    - pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' dataclasses
     - if [[ $TRAVIS_PYTHON_VERSION == 'nightly' ]]; then travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' -U setuptools; fi
     - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock monotonic; fi
     - if [[ $TRAVIS_PYTHON_VERSION == 'pypy' ]]; then travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock; fi
