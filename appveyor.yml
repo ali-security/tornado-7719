@@ -60,9 +60,9 @@ install:
 
   # Upgrade to the latest version of pip to avoid it displaying warnings
   # about it being out of date.
-  - "python -m pip install --disable-pip-version-check --user --upgrade pip"
+  - "python -m pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' --disable-pip-version-check --user --upgrade pip"
 
-  - "python -m pip install tox wheel"
+  - "python -m pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' tox wheel"
 
 build: false  # Not a C# project, build stuff at the test step instead.
 

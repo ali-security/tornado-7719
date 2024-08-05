@@ -434,7 +434,7 @@ class ThreadedResolver(ExecutorResolver):
 
     Requires the `concurrent.futures` package to be installed
     (available in the standard library since Python 3.2,
-    installable with ``pip install futures`` in older versions).
+    installable with ``pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' futures`` in older versions).
 
     The thread pool size can be configured with::
 
