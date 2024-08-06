@@ -4,16 +4,6 @@ dist: trusty
 # Use containers instead of full VMs for faster startup.
 sudo: false
 
-language: python
-python:
-    - 2.7
-    - pypy2.7-5.8.0
-    - 3.4
-    - 3.5
-    - 3.6
-    - nightly
-    - pypy3.5-5.8.0
-
 matrix:
     fast_finish: true
     include:
