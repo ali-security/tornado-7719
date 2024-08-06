@@ -45,6 +45,7 @@ matrix:
           - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl Twisted
           - travis_retry python setup.py install
         script:
+          - export TARGET="-m tornado.test.runtests"
           - unset TORNADO_EXTENSION && python -m tornado.test
           - python -bb $TARGET
 
@@ -55,6 +56,7 @@ matrix:
           - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl Twisted
           - travis_retry python setup.py install
         script:
+          - export TARGET="-m tornado.test.runtests"
           - unset TORNADO_EXTENSION && python -m tornado.test
           - python -bb $TARGET
         #   - cd docs && mkdir sphinx-out && sphinx-build -E -n -W -b html . sphinx-out
