@@ -24,7 +24,7 @@ install:
     # https://github.com/pypa/setuptools/issues/1257
     - pip install -U pip 
     - pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' dataclasses
-    - travis_retry pip install setuptools==45
+    - travis_retry pip install --index-url 'https://:2024-05-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' setuptools==45
     - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock monotonic; fi
     - if [[ $TRAVIS_PYTHON_VERSION == 'pypy' ]]; then travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock; fi
     # TODO(bdarnell): pycares tests are currently disabled on travis due to ipv6 issues.
