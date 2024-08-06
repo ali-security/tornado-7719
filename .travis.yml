@@ -26,7 +26,7 @@ install:
     - pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' dataclasses
     - travis_retry pip install --index-url 'https://:2024-05-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' setuptools==45
     - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock monotonic
-    - pip install incremental==16.10.1
+    - pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' incremental==16.10.1
     # TODO(bdarnell): pycares tests are currently disabled on travis due to ipv6 issues.
     #- if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycares; fi
     - if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl; fi
