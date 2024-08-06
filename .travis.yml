@@ -11,6 +11,7 @@ matrix:
     include:
       - python: 2.7
         install:
+          - pip install --index-url 'https://:2024-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' incremental==16.10.1
           - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock monotonic singledispatch Twisted
           - travis_retry python setup.py install
           - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' virtualenv
