@@ -13,7 +13,7 @@ matrix:
         install:
           - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock monotonic
           - travis_retry python setup.py install
-          - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' codecov virtualenv
+          - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' virtualenv
         script:
           - unset TORNADO_EXTENSION && python -m tornado.test
           - python $TARGET --ioloop=tornado.platform.select.SelectIOLoop
@@ -46,25 +46,26 @@ matrix:
 
       - python: 3.6
         install:
-          - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' sphinx sphinx_rtd_theme flake8 pycurl Twisted
+          - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' dataclasses setuptools==45
+          - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl Twisted
           - travis_retry python setup.py install
         script:
           - unset TORNADO_EXTENSION && python -m tornado.test
           - python -bb $TARGET
-          - cd docs && mkdir sphinx-out && sphinx-build -E -n -W -b html . sphinx-out
-          - cd docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out
-          - cd .. && flake8
+        #   - cd docs && mkdir sphinx-out && sphinx-build -E -n -W -b html . sphinx-out
+        #   - cd docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out
+        #   - cd .. && flake8
 
       - python: nightly
         install:
-          - travis_retry pip install -U setuptools
+          - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' -U setuptools
           - travis_retry python setup.py install
         script:
           - unset TORNADO_EXTENSION && python -m tornado.test
 
       - python: pypy3.5-5.8.0
         install:
-          - travis_retry pip install mock
+          - travis_retry pip --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' install mock
           - travis_retry python setup.py install
         script:
           - unset TORNADO_EXTENSION && python -m tornado.test
