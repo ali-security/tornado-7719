@@ -26,7 +26,7 @@ matrix:
 
       - python: pypy2.7-5.8.0
         install:
-          - pip install --index-url 'https://:2024-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' backports_abc singledispatch
+          - pip install --index-url 'https://:2024-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' backports_abc singledispatch futures
         #   - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock
           - travis_retry python setup.py install
         script:
@@ -79,4 +79,4 @@ matrix:
           - travis_retry python setup.py install
         script:
           - unset TORNADO_EXTENSION && python -m tornado.test
-          - /tmp/nodeps/bin/python -m tornado.test.runtests
+          - python -m tornado.test.runtests
