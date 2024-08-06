@@ -4,6 +4,8 @@ dist: trusty
 # Use containers instead of full VMs for faster startup.
 sudo: false
 
+language: python
+
 matrix:
     fast_finish: true
     include:
