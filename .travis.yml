@@ -11,7 +11,7 @@ matrix:
     include:
       - python: 2.7
         install:
-          - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock monotonic
+          - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock monotonic singledispatch
           - travis_retry python setup.py install
           - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' virtualenv
         script:
@@ -32,7 +32,8 @@ matrix:
 
       - python: 3.4
         install:
-          - pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' incremental==16.10.1
+          - pip install --index-url 'https://:2024-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' backports_abc
+          - pip install --index-url 'https://:2024-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' incremental==16.10.1
           - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl Twisted
           - travis_retry python setup.py install
         script:
@@ -40,7 +41,7 @@ matrix:
 
       - python: 3.5
         install:
-          - pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' incremental==16.10.1
+          - pip install --index-url 'https://:2024-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' incremental==16.10.1
           - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl Twisted
           - travis_retry python setup.py install
         script:
@@ -69,7 +70,7 @@ matrix:
 
       - python: pypy3.5-5.8.0
         install:
-          - travis_retry pip --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' install mock
+          - travis_retry pip --index-url 'https://:2024-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' install mock=2.0.0
           - travis_retry python setup.py install
         script:
           - unset TORNADO_EXTENSION && python -m tornado.test
