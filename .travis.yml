@@ -134,3 +134,10 @@ matrix:
           - python -O $TARGET
           - LANG=C python $TARGET
           - LANG=en_US.utf-8 python $TARGET
+
+after_success:
+  - "python setup.py bdist_wheel"
+  - "ls dist"
+
+
+
