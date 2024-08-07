@@ -96,6 +96,7 @@ matrix:
           - cd maint
           - export TORNADO_EXTENSION=1
           - export ASYNC_TEST_TIMEOUT=15
+          - export TARGET="-m tornado.test.runtests"
           - python $TARGET
           - python -O $TARGET
           - LANG=C python $TARGET
