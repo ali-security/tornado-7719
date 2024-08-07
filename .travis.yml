@@ -17,6 +17,7 @@ matrix:
           - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' virtualenv
         script:
           - python -m tornado.test
+          - cd maint
           - export TORNADO_EXTENSION=1
           - export TARGET="-m tornado.test.runtests"
           - export ASYNC_TEST_TIMEOUT=15
@@ -37,6 +38,7 @@ matrix:
           - travis_retry python setup.py install
         script:
           - python -m tornado.test
+          - cd maint
           - export TARGET="-m tornado.test.runtests"
           - export ASYNC_TEST_TIMEOUT=15
           - python $TARGET
@@ -53,6 +55,7 @@ matrix:
           - travis_retry python setup.py install
         script:
           - python -m tornado.test
+          - cd maint
           - export TORNADO_EXTENSION=1
           - export TARGET="-m tornado.test.runtests"
           - export ASYNC_TEST_TIMEOUT=15
@@ -70,6 +73,7 @@ matrix:
           - travis_retry python setup.py install
         script:
           - python -m tornado.test
+          - cd maint
           - export TORNADO_EXTENSION=1
           - export TARGET="-m tornado.test.runtests"
           - export ASYNC_TEST_TIMEOUT=15
@@ -89,6 +93,7 @@ matrix:
           - travis_retry python setup.py install
         script:
           - python -m tornado.test
+          - cd maint
           - export TORNADO_EXTENSION=1
           - export ASYNC_TEST_TIMEOUT=15
           - python $TARGET
@@ -104,6 +109,7 @@ matrix:
           - travis_retry python setup.py install
         script:
           - python -m tornado.test
+          - cd maint
           - export TORNADO_EXTENSION=1
           - export TARGET="-m tornado.test.runtests"
           - export ASYNC_TEST_TIMEOUT=15
@@ -120,6 +126,7 @@ matrix:
           - travis_retry python setup.py install
         script:
           - python -m tornado.test
+          - cd maint
           - export TARGET="-m tornado.test.runtests"
           - export ASYNC_TEST_TIMEOUT=15
           - python $TARGET
