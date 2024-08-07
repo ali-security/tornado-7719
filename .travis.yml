@@ -16,13 +16,19 @@ matrix:
           - travis_retry python setup.py install
           - travis_retry pip install  --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' virtualenv
         script:
+          - python -m tornado.test
+          - export TORNADO_EXTENSION=1
           - export TARGET="-m tornado.test.runtests"
-          - unset TORNADO_EXTENSION && python -m tornado.test
+          - export ASYNC_TEST_TIMEOUT=15
+          - python $TARGET
           - python $TARGET --ioloop=tornado.platform.select.SelectIOLoop
+          - python -O $TARGET
+          - LANG=en_US.utf-8 python $TARGET
           - python $TARGET --httpclient=tornado.curl_httpclient.CurlAsyncHTTPClient
           - python $TARGET --ioloop=tornado.platform.twisted.TwistedIOLoop
           - python $TARGET --resolver=tornado.platform.twisted.TwistedResolver
           - python $TARGET --ioloop=tornado.ioloop.PollIOLoop --ioloop_time_monotonic
+          - python -m tornado.test.runtests
 
       - python: pypy2.7-5.8.0
         install:
@@ -30,7 +36,14 @@ matrix:
         #   - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' mock
           - travis_retry python setup.py install
         script:
-          - unset TORNADO_EXTENSION && python -m tornado.test
+          - python -m tornado.test
+          - export TARGET="-m tornado.test.runtests"
+          - export ASYNC_TEST_TIMEOUT=15
+          - python $TARGET
+          - python -O $TARGET
+          - LANG=C python $TARGET
+          - LANG=en_US.utf-8 python $TARGET
+          - python -m tornado.test.runtests
 
       - python: 3.4
         install:
@@ -39,7 +52,16 @@ matrix:
           - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl Twisted
           - travis_retry python setup.py install
         script:
-          - unset TORNADO_EXTENSION && python -m tornado.test
+          - python -m tornado.test
+          - export TORNADO_EXTENSION=1
+          - export TARGET="-m tornado.test.runtests"
+          - export ASYNC_TEST_TIMEOUT=15
+          - python $TARGET
+          - python -O $TARGET
+          - LANG=C python $TARGET
+          - LANG=en_US.utf-8 python $TARGET
+          - python -bb $TARGET
+          - python -m tornado.test.runtests
 
       - python: 3.5
         install:
@@ -47,9 +69,16 @@ matrix:
           - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl Twisted
           - travis_retry python setup.py install
         script:
+          - python -m tornado.test
+          - export TORNADO_EXTENSION=1
           - export TARGET="-m tornado.test.runtests"
-          - unset TORNADO_EXTENSION && python -m tornado.test
+          - export ASYNC_TEST_TIMEOUT=15
+          - python $TARGET
+          - python -O $TARGET
+          - LANG=C python $TARGET
+          - LANG=en_US.utf-8 python $TARGET
           - python -bb $TARGET
+          - python -m tornado.test.runtests
 
       - python: 3.6
         install:
@@ -59,24 +88,41 @@ matrix:
           - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' pycurl Twisted
           - travis_retry python setup.py install
         script:
-          - export TARGET="-m tornado.test.runtests"
-          - unset TORNADO_EXTENSION && python -m tornado.test
+          - python -m tornado.test
+          - export TORNADO_EXTENSION=1
+          - export ASYNC_TEST_TIMEOUT=15
+          - python $TARGET
+          - python -O $TARGET
+          - LANG=C python $TARGET
+          - LANG=en_US.utf-8 python $TARGET
           - python -bb $TARGET
-        #   - cd docs && mkdir sphinx-out && sphinx-build -E -n -W -b html . sphinx-out
-        #   - cd docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out
-        #   - cd .. && flake8
+          - python -m tornado.test.runtests
 
       - python: nightly
         install:
           - travis_retry pip install --index-url 'https://:2018-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' -U setuptools
           - travis_retry python setup.py install
         script:
-          - unset TORNADO_EXTENSION && python -m tornado.test
+          - python -m tornado.test
+          - export TORNADO_EXTENSION=1
+          - export TARGET="-m tornado.test.runtests"
+          - export ASYNC_TEST_TIMEOUT=15
+          - python $TARGET
+          - python -O $TARGET
+          - LANG=C python $TARGET
+          - LANG=en_US.utf-8 python $TARGET
+          - python -bb $TARGET
+          - python -m tornado.test.runtests
 
       - python: pypy3.5-5.8.0
         install:
           - pip install --index-url 'https://:2024-09-16T19:22:58.819187Z@time-machines-pypi.sealsecurity.io/' backports_abc singledispatch
           - travis_retry python setup.py install
         script:
-          - unset TORNADO_EXTENSION && python -m tornado.test
-          - python -m tornado.test.runtests
+          - python -m tornado.test
+          - export TARGET="-m tornado.test.runtests"
+          - export ASYNC_TEST_TIMEOUT=15
+          - python $TARGET
+          - python -O $TARGET
+          - LANG=C python $TARGET
+          - LANG=en_US.utf-8 python $TARGET
